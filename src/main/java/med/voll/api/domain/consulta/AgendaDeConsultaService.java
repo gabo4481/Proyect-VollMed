@@ -7,6 +7,7 @@ import med.voll.api.domain.medico.MedicoRepository;
 import med.voll.api.domain.paciente.PacienteRepository;
 import med.voll.api.infra.errores.ValidacionDeIntegridad;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -43,7 +44,7 @@ public class AgendaDeConsultaService {
             throw new ValidacionDeIntegridad("no existen medicos disponibles para este horario y especialidad");
         }
 
-        var consulta = new Consulta(null,medico,paciente,datos.fecha());
+        var consulta = new Consulta(medico,paciente,datos.fecha());
 
         consultaRepository.save(consulta);
 
