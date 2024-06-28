@@ -10,7 +10,7 @@ import med.voll.api.domain.paciente.Paciente;
 
 import java.time.LocalDateTime;
 
-@Table(name = "consulta")
+@Table(name = "consultas")
 @Entity(name = "Consulta")
 @Getter
 @NoArgsConstructor
@@ -20,7 +20,7 @@ public class Consulta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "medico_id")
@@ -30,6 +30,7 @@ public class Consulta {
     @JoinColumn(name = "paciente_id")
     private Paciente paciente;
 
-    private LocalDateTime date;
+    private LocalDateTime fecha;
+
 
 }
